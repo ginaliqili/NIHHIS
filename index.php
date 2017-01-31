@@ -535,16 +535,16 @@ function heatwaveList(json_object) {
   var day_temp2015 = [];
   var day_temp2014 = [];
   var day_temp2013 = [];
-  for (i = 0; i < days2015.length - 1; i++) {
+  for (i = 0; i < days2015.length; i++) {
     day_temp2015.push(days2015[i]);
     day_temp2015.push(temps2015[i]);
   }
-  for (i = 0; i < days2014.length - 1; i++) {
+  for (i = 0; i < days2014.length; i++) {
     day_temp2014.push(days2014[i]);
     day_temp2014.push(temps2014[i]);
   }
 
-  for (i = 0; i < days2013.length - 1; i++) {
+  for (i = 0; i < days2013.length; i++) {
     day_temp2013.push(days2013[i]);
     day_temp2013.push(temps2013[i]);
   }
@@ -568,13 +568,10 @@ function heatwaveList(json_object) {
 
   var text = "<table><tr><th class='date'>Date</th><th class='temp'>Temperature (F)</th></tr>"
   // 2015 text
-  for (i = 0; i < days2015.length-1; i++) {
+  for (i = 0; i < days2015.length; i++) {
     text += "<tr><td class='date'>" + days2015[i] + "</td><td class='temp'>" + temps2015[i] + "</td></tr>"
   }
-  var num_days = days2015.length - 1;
-  if (num_days == -1) {
-    num_days = 0;
-  }
+  var num_days = days2015.length;
     text += "<tr><td class='date'><b>Days above 95: </b></td><td class='temp'><b>" + num_days + "</b></td></tr></table>";
   if (stationData2015 == false) {
     $('#heatwaves2015').append("There is no weather station data within " + county_name + "'s  boundaries for 2015. Try picking a nearby county instead.");
@@ -604,13 +601,10 @@ function heatwaveList(json_object) {
 
   // 2014 text
   text = "<table><tr><th class='date'>Date</th><th class='temp'>Temperature (F)</th></tr>"
-  for (i = 0; i < days2014.length-1; i++) {
+  for (i = 0; i < days2014.length; i++) {
     text += "<tr><td class='date'>" + days2014[i] + "</td><td class='temp'>" + temps2014[i] + "</td></tr>"
   }
-  num_days = days2014.length - 1;
-  if (num_days == -1) {
-    num_days = 0;
-  }
+  num_days = days2014.length;
   text += "<tr><th class='date'>Days above 95: </th><th class='temp'>" + num_days + "</th></tr>";
   if (stationData2014 == false) {
     $('#heatwaves2014').append("There is no weather station data within " + county_name + "'s  boundaries for 2014. Try picking a nearby county instead.");
@@ -636,14 +630,14 @@ function heatwaveList(json_object) {
 
   // 2013 text
   text = "<table><tr><th class='date'>Date</th><th class='temp'>Temperature (F)</th></tr>"
-  for (i = 0; i < days2013.length-1; i++) {
+  for (i = 0; i < days2013.length; i++) {
     text += "<tr><td class='date'>" + days2013[i] + "</td><td class='temp'>" + temps2013[i] + "</td></tr>"
   }
-  num_days = days2013.length-1;
-  if (num_days == -1) {
-    num_days = 0;
-  }
+  num_days = days2013.length;
+
   text += "<tr><th class='date'>Days above 95: </th><th class='temp'>" + num_days + "</th></tr>";
+  console.log(temps2013);
+  console.log(days2013);
   if (stationData2013 == false) {
     $('#heatwaves2013').append("There is no weather station data within " + county_name + "'s  boundaries for 2013. Try picking a nearby county instead.");
   }
